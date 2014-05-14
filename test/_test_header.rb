@@ -12,4 +12,6 @@ module TestConfig
   LEASE_FILE  = SETTINGS['server']['leases']
 
   SUBNET      = SETTINGS['network']['subnet']
+
+  NET_TESTS   = SETTINGS['tests']['ping']
 end

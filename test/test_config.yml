@@ -5,3 +5,6 @@ server:
 
 network:
   subnet:   '10.8.0.0'
+
+tests:
+  ping: false # Perform tests involving the pinging of hosts
