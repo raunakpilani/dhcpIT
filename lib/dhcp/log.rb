@@ -7,7 +7,7 @@ module DHCP::Log
       # We must make our own ruby based logger if we are a standalone proxy server
       require 'logger'
       # We keep the last 6 1MB log files
-      return Logger.new("/tmp/dhcp-proxy", 6, 1024*1024)
+      return Logger.new("/tmp/dhcp-proxy", 6, 1024*1024) #TODO Make logging configurable
     end
   end
 end
