@@ -5,8 +5,8 @@ class DHCPRecordTest < Test::Unit::TestCase
   def setup
     @server = DHCP::Server.new("testcase")
     @subnet = DHCP::Subnet.new(@server,"192.168.0.0","255.255.255.0")
-    @ip = "123.321.123.321"
-    @mac = "aa:bb:CC:dd:ee:ff"
+    @ip   = "123.321.123.321"
+    @mac  = "aa:bb:CC:dd:ee:ff"
     options = {}
     @record = DHCP::Record.new(@subnet, @ip, @mac, options)
   end

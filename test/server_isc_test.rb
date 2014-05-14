@@ -5,11 +5,11 @@ class DHCPServerIscTest < Test::Unit::TestCase
 
   def setup
     #UGLY workaround for now
-    @server = @@server ||= DHCP::Server::ISC.new(:name => "127.0.0.1", :config => "/etc/dhcp3/dhcpd.conf", :leases => "/var/lib/dhcp3/dhcpd.leases")
+    @server = @server || DHCP::Server::ISC.new(:name => TestConfig::SERVER, :config => TestConfig::CONF_FILE, :leases => TestConfig::LEASE_FILE)
   end
 
   def find_subnet
-    @subnet = @server.find_subnet "192.168.11.0"
+    @subnet = @server.find_subnet TestConfig::SUBNET
   end
 
   def test_it_should_get_subnets_data
