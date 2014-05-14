@@ -2,3 +2,6 @@ server:
   address:  '127.0.0.1'
   config:   'test/resources/dhcpd.conf'
   leases:   'test/resources/dhcpd.leases'
+
+network:
+  subnet:   '10.8.0.0'
