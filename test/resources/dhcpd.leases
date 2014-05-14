@@ -1,0 +1,143 @@
+# The format of this file is documented in the dhcpd.leases(5) manual page.
+# This lease file was written by isc-dhcp-4.2.2
+
+lease 10.8.0.2 {
+  starts 2 2014/05/13 15:16:16;
+  ends 2 2014/05/13 15:26:16;
+  tstp 2 2014/05/13 15:26:16;
+  cltt 2 2014/05/13 15:16:16;
+  binding state free;
+  hardware ethernet 00:14:22:7b:5e:8e;
+}
+lease 10.8.0.12 {
+  starts 2 2014/05/13 15:45:04;
+  ends 2 2014/05/13 15:55:04;
+  tstp 2 2014/05/13 15:55:04;
+  cltt 2 2014/05/13 15:45:04;
+  binding state free;
+  hardware ethernet e0:cb:1d:28:a0:ef;
+}
+lease 10.8.0.40 {
+  starts 2 2014/05/13 17:32:37;
+  ends 2 2014/05/13 17:34:28;
+  tstp 2 2014/05/13 17:34:28;
+  cltt 2 2014/05/13 17:32:37;
+  binding state free;
+  hardware ethernet e4:92:fb:50:09:98;
+  uid "\001\344\222\373P\011\230";
+}
+lease 10.8.0.28 {
+  starts 2 2014/05/13 16:15:25;
+  ends 2 2014/05/13 18:15:25;
+  tstp 2 2014/05/13 18:15:25;
+  cltt 2 2014/05/13 16:15:25;
+  binding state free;
+  hardware ethernet 68:9c:70:d8:d3:cd;
+  uid "\001h\234p\330\323\315";
+}
+lease 10.8.0.190 {
+  starts 2 2014/05/13 18:05:56;
+  ends 2 2014/05/13 18:15:56;
+  tstp 2 2014/05/13 18:15:56;
+  cltt 2 2014/05/13 18:05:56;
+  binding state free;
+  hardware ethernet 24:0a:64:95:21:57;
+  uid "\001$\012d\225!W";
+}
+lease 10.8.0.109 {
+  starts 2 2014/05/13 18:07:51;
+  ends 2 2014/05/13 18:17:51;
+  tstp 2 2014/05/13 18:17:51;
+  cltt 2 2014/05/13 18:07:51;
+  binding state free;
+  hardware ethernet e0:06:e6:94:34:f2;
+  uid "\001\340\006\346\2244\362";
+}
+lease 10.8.0.146 {
+  starts 2 2014/05/13 18:51:36;
+  ends 2 2014/05/13 19:01:36;
+  tstp 2 2014/05/13 19:01:36;
+  cltt 2 2014/05/13 18:51:36;
+  binding state free;
+  hardware ethernet e4:92:fb:50:09:98;
+  uid "\001\344\222\373P\011\230";
+}
+lease 10.8.0.36 {
+  starts 2 2014/05/13 17:12:52;
+  ends 2 2014/05/13 19:12:52;
+  tstp 2 2014/05/13 19:12:52;
+  cltt 2 2014/05/13 17:12:52;
+  binding state free;
+  hardware ethernet 68:a8:6d:17:e6:ca;
+  uid "\001h\250m\027\346\312";
+}
+lease 10.8.0.201 {
+  starts 2 2014/05/13 19:20:46;
+  ends 2 2014/05/13 19:30:46;
+  tstp 2 2014/05/13 19:30:46;
+  cltt 2 2014/05/13 19:20:46;
+  binding state free;
+  hardware ethernet 98:6c:f5:43:28:0e;
+}
+lease 10.8.0.167 {
+  starts 2 2014/05/13 18:12:53;
+  ends 2 2014/05/13 20:12:53;
+  tstp 2 2014/05/13 20:12:53;
+  cltt 2 2014/05/13 18:12:53;
+  binding state free;
+  hardware ethernet a8:86:dd:89:aa:a2;
+  uid "\001\250\206\335\211\252\242";
+}
+lease 10.8.0.202 {
+  starts 2 2014/05/13 20:15:11;
+  ends 2 2014/05/13 20:25:11;
+  tstp 2 2014/05/13 20:25:11;
+  cltt 2 2014/05/13 20:15:11;
+  binding state free;
+  hardware ethernet 98:6c:f5:01:04:c0;
+}
+lease 10.8.0.68 {
+  starts 2 2014/05/13 20:33:36;
+  ends 2 2014/05/13 20:43:36;
+  tstp 2 2014/05/13 20:43:36;
+  cltt 2 2014/05/13 20:33:36;
+  binding state free;
+  hardware ethernet 4c:ed:de:5d:c5:06;
+  uid "\001L\355\336]\305\006";
+}
+lease 10.8.0.111 {
+  starts 2 2014/05/13 20:57:37;
+  ends 2 2014/05/13 21:07:37;
+  tstp 2 2014/05/13 21:07:37;
+  cltt 2 2014/05/13 20:57:37;
+  binding state free;
+  hardware ethernet 20:7c:8f:4c:d7:6b;
+  uid "\001 |\217L\327k";
+}
+lease 10.8.0.192 {
+  starts 2 2014/05/13 19:25:58;
+  ends 2 2014/05/13 21:25:58;
+  tstp 2 2014/05/13 21:25:58;
+  cltt 2 2014/05/13 19:25:58;
+  binding state free;
+  hardware ethernet 00:23:6c:8c:90:5a;
+  uid "\001\000#l\214\220Z";
+}
+lease 10.8.0.180 {
+  starts 2 2014/05/13 21:50:38;
+  ends 2 2014/05/13 22:00:38;
+  tstp 2 2014/05/13 22:00:38;
+  cltt 2 2014/05/13 21:50:38;
+  binding state free;
+  hardware ethernet b8:97:5a:30:f4:b9;
+  uid "\001\270\227Z0\364\271";
+}
+lease 10.8.0.207 {
+  starts 2 2014/05/13 22:02:58;
+  ends 2 2014/05/13 22:12:58;
+  tstp 2 2014/05/13 22:12:58;
+  cltt 2 2014/05/13 22:02:58;
+  binding state free;
+  hardware ethernet 9c:3a:af:74:9e:a1;
+  uid "\001\234:\257t\236\241";
+}
