@@ -1,4 +1,4 @@
-require 'test/test_helper'
+require_relative '_test_header'
 
 class DHCPRecordTest < Test::Unit::TestCase
 

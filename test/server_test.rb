@@ -1,10 +1,10 @@
-$: << "../foreman/vendor/rails/activesupport/lib/"
-$: << "../foreman/vendor/rails/activesupport/lib/active_support/vendor/memcache-client-1.7.4"
-$: << "../foreman/vendor/rails/activesupport/lib/active_support/vendor/builder-2.1.2"
-require "active_support/core_ext"
-require "active_support/cache"
+$: << '../foreman/vendor/rails/activesupport/lib/'
+$: << '../foreman/vendor/rails/activesupport/lib/active_support/vendor/memcache-client-1.7.4'
+$: << '../foreman/vendor/rails/activesupport/lib/active_support/vendor/builder-2.1.2'
+require 'active_support/core_ext'
+require 'active_support/cache'
 
-require 'test/test_helper'
+require_relative '_test_header'
 
 class DHCPServerTest < Test::Unit::TestCase
 

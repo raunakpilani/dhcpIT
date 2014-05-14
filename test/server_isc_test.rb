@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'dhcp'
+require_relative '_test_header'
 require 'dhcp/server/isc'
 
 class DHCPServerIscTest < Test::Unit::TestCase

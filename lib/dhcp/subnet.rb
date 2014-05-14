@@ -1,5 +1,5 @@
-require "ipaddr"
-require 'ping'
+require 'ipaddr'
+require 'net/ping'
 require 'dhcp/validations'
 
 module DHCP
@@ -85,7 +85,7 @@ module DHCP
       else
         free_ips.each do |ip|
           logger.debug "searching for free ip - pinging #{ip}"
-          if Ping.pingecho(ip)
+          if Net::Ping.pingecho(ip)
             logger.info "found a pingable IP(#{ip}) address which don't have a DHCP record"
           else
             logger.debug "found free ip #{ip} out of a total of #{free_ips.size} free ips"

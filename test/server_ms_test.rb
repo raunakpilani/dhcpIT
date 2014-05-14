@@ -1,5 +1,5 @@
-require 'test/unit'
-require 'dhcp'
+require_relative '_test_header'
+
 require 'dhcp/server/ms'
 
 class DHCPServerMicrosoftTest < Test::Unit::TestCase
