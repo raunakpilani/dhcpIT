@@ -13,7 +13,7 @@ msdhcp:
 network:
   subnet:       '10.8.0.0'
   subnet2:      '10.9.0.0'
-  subnetmask:   '255.0.0.0'
+  subnetmask:   '255.255.0.0'
   invalidaddr:  '176.2.69.1'
   record:       # Test record. Should reside in `subnet` in order to pass
     address:    '10.8.0.1'
