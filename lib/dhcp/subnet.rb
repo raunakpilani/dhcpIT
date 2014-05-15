@@ -18,7 +18,7 @@ module DHCP
       @netmask = validate_ip netmask
       @options = {}
       @loaded  = false
-      raise DHCP::Error, "unable to Add Subnet" unless @server.add_subnet(self)
+      @server.add_subnet(self)
       super()
     end
 
@@ -31,6 +31,10 @@ module DHCP
 
     def to_s
       "#{network}/#{netmask}"
+    end
+
+    def inspect
+      "#<Subnet network=#{network} netmask=#{netmask} options=#{options} loaded=#{loaded}>"
     end
 
     def range

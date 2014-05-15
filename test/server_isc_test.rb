@@ -64,7 +64,7 @@ class DHCPServerIscTest < Test::Unit::TestCase
       ip = @subnet.unused_ip
       assert ip =! nil
     else
-      puts 'Skipping test_should_find_unused ip, because network-aware testing is off'
+      puts 'Skipping test_should_find_unused_ip, because network-aware testing is off'
     end
   end
 

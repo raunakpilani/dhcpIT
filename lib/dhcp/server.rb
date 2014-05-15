@@ -26,7 +26,8 @@ module DHCP
 
     def subnets
       loadSubnets if @subnets.size == 0
-      return @subnets
+
+      @subnets
     end
 
     # Abstracted Subnet loader method
@@ -47,14 +48,15 @@ module DHCP
     # Adds a Subnet to a server object
     def add_subnet subnet
       logger.debug "adding subnet #{subnet} to #{name}"
+
       if find_subnet(subnet.network).nil?
         @subnets  << validate_subnet(subnet)
         @@subnets << subnet unless @@subnets.map(&:network).include?(subnet.network)
         logger.debug "added #{subnet} to #{name}"
-        return true
+        true
+      else
+        raise DHCP::Error, "unable to add subnet #{subnet}: already exists (#{@@subnets})"
       end
-      logger.warn "subnet #{subnet} already exists in server #{name}"
-      return false
     end
 
     def find_subnet value
