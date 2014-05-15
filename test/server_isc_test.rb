@@ -4,6 +4,8 @@ require 'dhcp/server/isc'
 class DHCPServerIscTest < Test::Unit::TestCase
 
   def setup
+    exit unless TestConfig::ISC_TESTS
+
     #UGLY workaround for now
     @server = @server || DHCP::Server::ISC.new(:name => TestConfig::SERVER, :config => TestConfig::CONF_FILE, :leases => TestConfig::LEASE_FILE)
   end
@@ -57,9 +59,13 @@ class DHCPServerIscTest < Test::Unit::TestCase
 #  end
 
   def test_should_find_unused_ip
-    find_subnet
-    ip = @subnet.unused_ip
-    assert ip =! nil
+    if TestConfig::NET_TESTS
+      find_subnet
+      ip = @subnet.unused_ip
+      assert ip =! nil
+    else
+      puts 'Skipping test_should_find_unused ip, because network-aware testing is off'
+    end
   end
 
 end

@@ -5,17 +5,19 @@ require 'dhcp/server/ms'
 class DHCPServerMicrosoftTest < Test::Unit::TestCase
 
   def setup
-    username = "domain\\username"
-    password = File.read("lib/.pass").chomp
-    gateway  = "gateway"
-    dhcpSrv  = "server"
+    exit unless TestConfig::MS_TESTS
+
+    username = TestConfig::MS_USERPATH
+    password = TestConfig::MS_PASSWORD
+    gateway  = TestConfig::MS_GATEWAY
+    dhcpSrv  = TestConfig::MS_SERVER
 
     #UGLY workaround for now
     @server = @@server ||= DHCP::Server::MS.new(:gateway => gateway, :server => dhcpSrv, :data => {:username => username, :password => password})
   end
 
   def find_subnet
-    @subnet = @server.find_subnet "172.20.76.0"
+    @subnet = @server.find_subnet TestConfig::SUBNET
   end
 
   def test_it_should_get_subnets_data

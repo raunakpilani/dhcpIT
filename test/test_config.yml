@@ -1,10 +1,26 @@
 server:
+  name:     'testcase'
   address:  '127.0.0.1'
   config:   'test/resources/dhcpd.conf'
   leases:   'test/resources/dhcpd.leases'
 
+msdhcp:
+  user:     'domain\\user'
+  password: ''
+  gateway:  'gateway'
+  server:   'server'
+
 network:
-  subnet:   '10.8.0.0'
+  subnet:       '10.8.0.0'
+  subnet2:      '10.9.0.0'
+  subnetmask:   '255.0.0.0'
+  invalidaddr:  '176.2.69.1'
+  record:       # Test record. Should reside in `subnet` in order to pass
+    address:    '10.8.0.1'
+    hwaddr:     '13:37:69:42:16:08'
 
 tests:
-  ping: false # Perform tests involving the pinging of hosts
+  ping:   false # Perform tests involving the pinging of hosts
+  isc:    true  # Test ISC Facilities
+  ms:     false # Test MS-DNS facilities
+  dalli:  false # Perform dalli memcache test
