@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.description = 'Gem that provides functionality for interaction with ISC and MS DHCP servers'
   s.authors     = ['Ohad Levy', 'Bowser']
   s.email       = 'king@bowser.pw'
-  s.files       = ['lib/hola.rb']
+  s.files       = Dir['lib/**.rb']
   s.homepage    =
       'http://rubygems.org/gems/dhcp_it'
   s.license       = 'GPLv3'
