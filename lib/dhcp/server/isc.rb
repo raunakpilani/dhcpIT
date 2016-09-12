@@ -82,10 +82,10 @@ module DHCP
           body  = $2
           opts = {}
           body.scan(/([^;]+);/) do |data|
-            opts.merge parse_record_options(data[0])
+            opts.merge!(parse_record_options(data[0]))
           end
           next if opts[:state] == "free" or opts[:ip].nil?
-          DHCP::Record.new(subnet, opts[:ip], opts[:mac])
+          DHCP::Record.new(subnet, opts[:ip], opts[:mac], {:title => opts[:hostname]} )
         end
       end
       subnet.loaded = true
@@ -122,8 +122,10 @@ module DHCP
         options[:ip] = $1
       when /deleted/
         options[:deleted] = true
-      when /binding\s+state\s(\S+)/
+      when /^\s+binding\s+state\s(\S+)/
         options[:state] = $1
+      when /\s+client-hostname\s+"(\S+)"/
+        options[:hostname] = $1
         #TODO: check if adding a new reservation with omshell for a free lease still
         #generates a conflict
       end
