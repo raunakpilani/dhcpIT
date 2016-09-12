@@ -78,9 +78,9 @@ module DHCP
 
       conf.scan(/lease\s+(\S+\s*\{[^}]+\})/) do |lease|
         if lease[0] =~ /^(\S+)\s*\{([^\}]+)/
-          title = $1
+          ip = $1
           body  = $2
-          opts = {}
+          opts = {:ip => ip}
           body.scan(/([^;]+);/) do |data|
             opts.merge!(parse_record_options(data[0]))
           end
@@ -122,9 +122,9 @@ module DHCP
         options[:ip] = $1
       when /deleted/
         options[:deleted] = true
-      when /^\s+binding\s+state\s(\S+)/
+      when /^binding\s+state\s(\S+)/
         options[:state] = $1
-      when /\s+client-hostname\s+"(\S+)"/
+      when /client-hostname\s+"(\S+)"/
         options[:hostname] = $1
         #TODO: check if adding a new reservation with omshell for a free lease still
         #generates a conflict
