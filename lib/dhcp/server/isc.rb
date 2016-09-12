@@ -73,7 +73,7 @@ module DHCP
             next
           end
         end
-        DHCP::Record.new(subnet, opts[:ip], opts[:mac], {:title => title})
+        DHCP::Record.new(subnet, opts[:ip], opts[:mac], {:title => title, :type => "host"})
       end
 
       conf.scan(/lease\s+(\S+\s*\{[^}]+\})/) do |lease|
@@ -85,7 +85,7 @@ module DHCP
             opts.merge!(parse_record_options(data[0]))
           end
           next if opts[:state] == "free" or opts[:ip].nil?
-          DHCP::Record.new(subnet, opts[:ip], opts[:mac], {:title => opts[:hostname]} )
+          DHCP::Record.new(subnet, opts[:ip], opts[:mac], {:title => opts[:hostname], :type => "lease"} )
         end
       end
       subnet.loaded = true

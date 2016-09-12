@@ -5,7 +5,7 @@ module DHCP
   # represent a DHCP Record
   class Record
 
-    attr_reader :ip, :mac, :title, :subnet
+    attr_reader :ip, :mac, :subnet
     attr_accessor :options
     include DHCP
     include DHCP::Log

@@ -99,6 +99,18 @@ module DHCP
       end
     end
 
+    def record_count
+      counts = {}
+      counts[:total] = valid_range.size
+      counts[:used] = records.size
+      ["host", "lease"].each do |t|
+        counts[t.to_sym] = records.select { |r|
+          r[:options][:type] == t
+        }.size
+      end
+      counts
+    end
+
     def delete_record record
       raise DHCP::Error, "Removing a DHCP Record which doesn't exists" unless delete record.ip
     end
