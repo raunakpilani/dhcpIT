@@ -68,17 +68,20 @@ module DHCP
           body.scan(/([^;]+);/) do |data|
             opts.merge!(parse_record_options(data[0]))
           end
+          subnet = find_subnet(opts[:ip])
           if opts[:deleted]
             subnet.delete_record find_record_by_title(subnet, title)
             next
           end
         end
         DHCP::Record.new(subnet, opts[:ip], opts[:mac], {:title => title, :type => "host"})
+        subnet.loaded = true
       end
 
       conf.scan(/lease\s+(\S+\s*\{[^}]+\})/) do |lease|
         if lease[0] =~ /^(\S+)\s*\{([^\}]+)/
           ip = $1
+          subnet = find_subnet(ip)
           body  = $2
           opts = {:ip => ip}
           body.scan(/([^;]+);/) do |data|
@@ -86,9 +89,9 @@ module DHCP
           end
           next if opts[:state] == "free" or opts[:ip].nil?
           DHCP::Record.new(subnet, opts[:ip], opts[:mac], {:title => opts[:hostname], :type => "lease"} )
+          subnet.loaded = true
         end
       end
-      subnet.loaded = true
       logger.debug "lazy loaded #{subnet.to_s} records"
     end
 

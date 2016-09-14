@@ -104,9 +104,7 @@ module DHCP
       counts[:total] = valid_range.size
       counts[:used] = records.size
       ["host", "lease"].each do |t|
-        counts[t.to_sym] = records.select { |r|
-          r[:options][:type] == t
-        }.size
+        counts[t.to_sym] = records.select { |r| r.options[:type] == t}.size
       end
       counts
     end
@@ -118,6 +116,10 @@ module DHCP
     def valid_range
       # remove broadcast and network address
       IPAddr.new(to_s).to_range.to_a[1..-2]
+    end
+
+    def unloadSubnet
+      @loaded = false
     end
 
     #def inspect

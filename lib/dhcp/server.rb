@@ -26,7 +26,6 @@ module DHCP
 
     def subnets
       loadSubnets if @subnets.size == 0
-
       @subnets
     end
 
@@ -76,6 +75,10 @@ module DHCP
     def delRecord subnet, record
       subnet.delete_record record
     end
+
+   def unloadSubnets
+     @subnets.each {|s| s.unloadSubnet}
+   end
 
   end
 end
