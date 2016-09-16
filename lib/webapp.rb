@@ -1,38 +1,47 @@
-module DHCP;
-  require 'sinatra/base'
-  require 'dhcp/log'
-  require 'dhcp/server/isc'
-  class WebApp < Sinatra::Base
+require 'sinatra/base'
+require 'json'
+$LOAD_PATH << '.'
+require 'dhcp.rb'
+require 'dhcp/log.rb'
+require 'dhcp/server/isc.rb'
 
-    def self.run!
-      @server=DHCP::ISC.new(opts)
-      @subnets = @server.subnets
-      super
-    end
+class WebApp < Sinatra::Base
 
-    get '/' do
-      "dragons have capricious parents"
-    end
-
-    get '/subnets' do
-      @subnets.to_json
-    end
-
-    get '/counts' do
-      counts = {}
-      @subnets.each {|sub| counts[sub.to_s] = sub.record_counts}
-      counts.to_json
-    end
-
-    get '/records' do
-      records = {}
-      @subnets.each {|sub| @records[sub] = sub.records}
-      records.to_json
-    end
-
-    get '/unload' do
-      @server.unloadSubnets
-    end
-    run! if app_file == $0
+  def self.run!
+    set :dchp_server, DHCP::ISC.new(opts)
+    set :subnets, settings.dhcp_server.subnets
+    super
   end
+
+  get '/' do
+    "dragons have capricious parents"
+  end
+
+  get '/subnets' do
+    subs = settings.subnets.map(&:to_s)
+    content_type :json
+    subs.to_json
+  end
+
+  get '/counts' do
+    counts = {}
+    settings.subnets.each {|sub| counts[sub.to_s] = sub.record_count}
+    content_type :json
+    counts.to_json
+  end
+
+  get '/records' do
+    records = {}
+    settings.subnets.each {|sub| records[sub] = sub.records}
+    content_type :json
+    records.to_json
+  end
+
+  get '/unload' do
+    settings.dhcp_server.unloadSubnets
+    "unloaded"
+  end
+
+  run! if app_file == $0
+
 end
