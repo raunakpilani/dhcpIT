@@ -8,6 +8,11 @@ require 'dhcp/server/isc.rb'
 class WebApp < Sinatra::Base
 
   def self.run!
+    opts = {
+      :name => "127.0.0.1",
+      :config => "/etc/dhcp/dhcpd.conf",
+      :leases => "/var/lib/dhcpd/dhcpd.leases"
+    }
     set :dchp_server, DHCP::ISC.new(opts)
     set :subnets, settings.dhcp_server.subnets
     super

@@ -68,7 +68,8 @@ module DHCP
           body.scan(/([^;]+);/) do |data|
             opts.merge!(parse_record_options(data[0]))
           end
-          subnet = find_subnet(opts[:ip])
+          found_subnet = find_subnet(opts[:ip])
+          subnet = found_subnet if found_subnet
           if opts[:deleted]
             subnet.delete_record find_record_by_title(subnet, title)
             next
